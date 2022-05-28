@@ -1,59 +1,35 @@
-# Read text from a file, and count the occurence of words in that text
-# Example:
-# count_words("The cake is done. It is a big cake!") 
-# --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
+class Student:
+    # [assignment] Skeleton class. Add your code here
+    def __init__(self, name, age, tracks, score):
+        self.name = str(name)
+        self.age = int(age)
+        self.tracks = list(tracks)
+        self.score = float(score)
 
-#ASSIGNING THE FILE TO A VARIABLE
-file = open("C:\Users\HP\Downloads\Reading-Text-Files(1)\Reading-Text-Files\main.py", "r")
+    def change_name(self, new_name):
+        self.name = new_name
+        new_name = "Peter"
+        print(f"The student changed his name to ", new_name)
 
-#DECLARING A FUNCTION WITH THE VARIABLE AS THE ARGUMENT
-def read_file_content(file):
+    def change_age(self, new_age):
+        self.age = new_age
+        new_age = 34
+        print(f"The student changed his age to ", new_age)
 
-    print("This file has been read")
-    
-    #DECLARING A FUNCTION THAT COUNTS THE WORDS IN THE FILE AND PRINTS A DICTIONARY
-def count_words():
-    #Calling the function for the file
-     read_file_content(file)
+    def add_track(self, new_track):
+        self.track = new_track
+        new_track = "UI/UX"
+        print(f"The student added a new track ", new_track)
 
-     
-    # Create an empty dictionary
-d = dict()
+    def get_score(self, score):
+        self.score = score
+        score = 20.90
+        print(f"The student score is ", score)
 
-    # Looping through each line of the file
-for line in file:
-        # Removing the spaces
-        line = line.strip()
+Bob = Student(name="Bob", age=26, tracks=["FE","BE"],score=20.90)
 
-        # changing words to lowercase to avoid case mismatch
-        line = line.lower()
-
-        #Removing the punctuation marks from the line
-        line = line.translate(line.maketrans("", "", string.punctuation))
-
-        # Split the line into words
-        words = line.split(" ")
-
-        # Iterate over each word in line
-        for word in words:
-            # Check if the word is already in dictionary
-             if word in d:
-                # Increment count of word by 1
-                d[word] = d[word] + 1
-        else:
-                # Add the word to dictionary with count 1
-                d[word] = 1
-
-                # Print the contents of dictionary
-for key in list(d.keys()):
-        print(key, ":", d[key])
-
-
-        
-    
-     
-
-      
-    
-
-
+# Expected methods
+Bob.change_name("Peter")
+Bob.change_age(34)
+Bob.add_track("UI/UX")
+Bob.get_score(20.90)
